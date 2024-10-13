@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<h2>Admin Dashboard</h2>
+
+<!-- Check if the session variable is set -->
+@if (Context.Session.TryGetValue("AdminName", out var adminNameBytes)) // Use Context instead of HttpContext
+{
+    var adminName = System.Text.Encoding.UTF8.GetString(adminNameBytes);
+    <h3>Welcome, @adminName!</h3>
+}
+else
+{
+    <h3>Welcome, Guest!</h3>
+}
+
+<div class="dashboard-content">
+    <p>This is your dashboard where you can manage various aspects of Kinston eUniversity.</p>
+    <div class="dashboard-links">
+        <h4>Manage Users</h4>
+        <ul>
+            <li><a asp-controller="Professor" asp-action="Create">Add Professor</a></li>
+            <li><a asp-controller="Student" asp-action="Create">Add Student</a></li>
+            <li><a asp-controller="Admin" asp-action="Create">Add Admin</a></li>
+        </ul>
+    </div>
+    <div class="dashboard-links">
+        <h4>Manage Courses</h4>
+        <ul>
+            <li><a asp-controller="Course" asp-action="Create">Add Course</a></li>
+            <li><a asp-controller="Course" asp-action="Index">View Courses</a></li>
+        </ul>
+    </div>
+</div>
+
+<style>
+    .dashboard-content {
+        margin: 20px;
+    }
+
+    .dashboard-links {
+        margin-top: 20px;
+    }
+
+        .dashboard-links h4 {
+            margin-bottom: 5px;
+        }
+
+        .dashboard-links ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+            .dashboard-links ul li {
+                margin-bottom: 5px;
+            }
+
+                .dashboard-links ul li a {
+                    text-decoration: none;
+                    color: #007bff;
+                }
+
+                    .dashboard-links ul li a:hover {
+                        text-decoration: underline;
+                    }
+</style>

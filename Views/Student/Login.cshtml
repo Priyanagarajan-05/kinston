@@ -1,0 +1,19 @@
+﻿@model Kinston_eUniversity.Models.Student
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Student Login</h2>
+
+<form asp-action="Login" method="post">
+    <div>
+        <label asp-for="Username"></label>
+        <input asp-for="Username" required />
+    </div>
+    <div>
+        <label asp-for="Password"></label>
+        <input asp-for="Password" type="password" required />
+    </div>
+    <button type="submit">Login</button>
+</form>

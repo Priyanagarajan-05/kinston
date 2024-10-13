@@ -1,0 +1,56 @@
+﻿
+@model Kinston_eUniversity.Models.Admin
+@{
+    ViewData["Title"] = "Create New Admin Account";
+}
+
+<h2>Create New Admin Account</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label for="AdminName">Admin Name:</label>
+        <input type="text" id="AdminName" name="AdminName" asp-for="AdminName" required />
+    </div>
+    <div>
+        <label for="Username">Username (Email):</label>
+        <input type="email" id="Username" name="Username" asp-for="Username" required />
+    </div>
+    <div>
+        <label for="Password">Password:</label>
+        <input type="password" id="Password" name="Password" asp-for="Password" required />
+    </div>
+    <button type="submit">Create Account</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}
+
+<style>
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 300px;
+        margin: auto;
+    }
+
+    label {
+        margin: 5px 0;
+    }
+
+    input {
+        padding: 8px;
+        margin-bottom: 10px;
+    }
+
+    button {
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+</style>

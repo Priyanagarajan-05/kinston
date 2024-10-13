@@ -1,0 +1,66 @@
+﻿@{
+    ViewData["Title"] = "Login / Create Account";
+}
+
+<h2>Login / Create Account</h2>
+
+<form id="userForm" method="post" asp-controller="Account" asp-action="LoginOrCreate">
+    <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="Email" required />
+    </div>
+
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="Password" required />
+    </div>
+
+    <div>
+        <h4>Select Role:</h4>
+        <label>
+            <input type="radio" name="Role" value="Admin" required /> Admin
+        </label>
+        <label>
+            <input type="radio" name="Role" value="Professor" required /> Professor
+        </label>
+        <label>
+            <input type="radio" name="Role" value="Student" required /> Student
+        </label>
+    </div>
+
+    <div>
+        <button type="submit">Login / Create Account</button>
+    </div>
+</form>
+
+<style>
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    form {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+    }
+
+    label {
+        margin-right: 10px;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+</style>

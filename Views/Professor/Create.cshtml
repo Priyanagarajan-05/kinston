@@ -1,0 +1,40 @@
+﻿@model Kinston_eUniversity.Models.Professor
+
+@{
+    ViewData["Title"] = "Create New Professor Account";
+}
+
+<h2>Create New Professor Account</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label asp-for="ProfessorName">Full Name:</label>
+        <input asp-for="ProfessorName" required />
+    </div>
+    <div>
+        <label asp-for="Department">Department:</label>
+        <input asp-for="Department" required />
+    </div>
+    <div>
+        <label asp-for="Username">Username (Email):</label>
+        <input asp-for="Username" type="email" required />
+    </div>
+    <div>
+        <label asp-for="Password">Password:</label>
+        <input asp-for="Password" type="password" required />
+    </div>
+    <div>
+        <label asp-for="Status">Status:</label>
+        <select asp-for="Status">
+            <option value="Active">Active</option>
+            <option value="Suspended">Suspended</option>
+        </select>
+    </div>
+    <button type="submit">Create Account</button>
+</form>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

@@ -1,0 +1,72 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+
+<h2>Welcome to Kinston eUniversity</h2>
+
+<p>Select a login option:</p>
+
+<!-- Dropdown for login options -->
+<div class="login-dropdown">
+    <select id="loginType" onchange="redirectToLogin()">
+        <option value="">-- Select Login Type --</option>
+        <option value="Admin">Admin Login</option>
+        <option value="Professor">Professor Login</option>
+        <option value="Student">Student Login</option>
+    </select>
+   
+</div>
+
+<script>
+    function redirectToLogin() {
+        var loginType = document.getElementById("loginType").value;
+        if (loginType) {
+            // Redirect to the appropriate login action based on selected option
+            var controller = loginType === "Admin" ? "Admin" :
+                            loginType === "Professor" ? "Professor" :
+                            loginType === "Student" ? "Student" : null;
+            if (controller) {
+                window.location.href = '/' + controller + '/Login';
+            }
+        }
+    }
+</script>
+
+<style>
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    p {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .login-dropdown {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+    }
+
+    select {
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid #ccc;
+        cursor: pointer;
+    }
+
+    button {
+        padding: 10px 20px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+</style>
